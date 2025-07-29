@@ -14,3 +14,4 @@ export type Wish = {
   created_at: string; // aith Timezone
   updated_at: string; // aith Timezone
 };
+ 

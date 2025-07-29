@@ -13,22 +13,21 @@ export default async function ProtectedPage({
     status?: 'completed' | 'pending'
   }
 }) {
+  const { q, priority, status } = searchParams
   const wishes = await getUserWishes({
-    query: searchParams.q,
-    priority: searchParams.priority,
-    status: searchParams.status,
+    query: q,
+    priority: priority,
+    status: status,
   })
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+    <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+      <header className="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-gray-900">
             我的愿望
           </h1>
-          <p className="text-gray-500 mt-1">
-            在这里管理你的所有愿望.
-          </p>
+          <p className="mt-1 text-gray-500">在这里管理你的所有愿望.</p>
         </div>
         <div className="flex items-center gap-x-4">
           <CreateWishButton />
@@ -55,9 +54,9 @@ export default async function ProtectedPage({
               </p>
               <div className="mt-6">
                 <CreateWishButton />
-              </div>
-            </div>
-          </div>
+        </div>
+      </div>
+      </div>
         )}
       </div>
     </div>
